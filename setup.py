@@ -41,7 +41,7 @@ setup(
     description='Requests + Gevent',
     long_description=__doc__,
     install_requires=[
-        'gevent',
+        'gevent==1.0.2',
         'requests'
     ],
     py_modules=['grequests'],

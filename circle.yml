@@ -1,0 +1,10 @@
+dependencies:
+  pre:
+    - pip install requests[security]
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - python setup.py sdist
+      - curl --fail -F package=@dist/mns-grequests-`python setup.py --version`.tar.gz https://${GEMFURY_SECRET}@push.fury.io/cwninja/

@@ -3,7 +3,7 @@
 
 from grequests import get, map, imap
 from nose.tools import ok_
-
+from nose.plugins.skip import SkipTest
 ########### Constants ############
 urls = [
         'http://github.com',
@@ -138,8 +138,9 @@ class GrequestsCase(unittest.TestCase):
             return False
         reqs = [grequests.get(httpbin('delay/1'), timeout=0.001), grequests.get(httpbin('/'))]
         responses = grequests.map(reqs, exception_handler=exception_handler)
-        self.assertTrue(responses[0].ok)
-        self.assertEqual(len(responses), 1)
+        self.assertFalse(responses[0])
+        self.assertTrue(responses[1].ok)
+        self.assertEqual(len(responses), 2)
 
     def test_map_timeout_exception_handler_no_return(self):
         """
