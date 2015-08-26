@@ -32,8 +32,8 @@ Send them all at the same time::
 from setuptools import setup
 
 setup(
-    name='grequests',
-    version='0.3.1',
+    name='mns-grequests',
+    version='0.3.2',
     url='https://github.com/kennethreitz/grequests',
     license='BSD',
     author='Kenneth Reitz',
